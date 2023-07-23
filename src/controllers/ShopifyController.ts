@@ -17,7 +17,6 @@ type FilterType = {
     }
 };
 
-
 interface Pagination extends RequestReturn {
     pageInfo?: {
         limit: string,
@@ -41,6 +40,7 @@ const ShopifyController = {
 
         const session = shopify.session.customAppSession(SHOP!)
         const data = await shopify.rest.SmartCollection.all({ session, ids: '453421007147,453421039915,453421072683,453421105451,453421302059,453421138219' })
+            //Fixed due the lack of categories. 
             .catch((r) => { res.status(400).json({ error: 'Error on Api Response' }) });
         res.status(200).json(data)
     },
@@ -48,7 +48,6 @@ const ShopifyController = {
     getItem: async (req: Request, res: Response) => {
 
         const id = req.params.id
-        console.log(req.params)
 
         if (id) {
             const session = shopify.session.customAppSession(SHOP!)
