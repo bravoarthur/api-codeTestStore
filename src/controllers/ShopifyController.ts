@@ -107,8 +107,8 @@ const ShopifyController = {
         if(counter.count) {
             total = counter.count
         }
-    
-        
+            
+
         const data = {data: {
                         productsList: info.body.products,
                         nextPageUrl: nextPageUrl,
